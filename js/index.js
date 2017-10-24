@@ -70,6 +70,7 @@ app.controller('newPlaceCtrl', function($scope, Map) {
     // display data to use
     $scope.send = function() {
         alert($scope.place.name + ' : ' + $scope.place.lat + ', ' + $scope.place.lng);
+        $("ul").append('<li>'+ $scope.place.name + " : " + $scope.place.lat + ", " + $scope.place.lng + '</li>');
     }
     //init map function
     Map.init();
