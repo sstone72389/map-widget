@@ -31,3 +31,37 @@ this.init = function() {
         });
         return d.promise;
     }
+
+    // add new marker to map
+  this.addMarker = function(res) {
+      if(this.marker) this.marker.setMap(null);
+      this.marker = new google.maps.Marker({
+          map: this.map,
+          position: res.geometry.location,
+          animation: google.maps.Animation.DROP
+      });
+      this.map.setCenter(res.geometry.location);
+  }
+
+});
+
+app.controller('newPlaceCtrl', function($scope, Map) {
+
+  $scope.place = {};
+
+  $scope.search = function() {
+      $scope.apiError = false;
+      Map.search($scope.searchPlace)
+      .then(
+          function(res) { // success
+              Map.addMarker(res);
+              $scope.place.name = res.name;
+              $scope.place.lat = res.geometry.location.lat();
+              $scope.place.lng = res.geometry.location.lng();
+          },
+          function(status) { // error
+              $scope.apiError = true;
+              $scope.apiStatus = status;
+          }
+      );
+  }
