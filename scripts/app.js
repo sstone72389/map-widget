@@ -65,3 +65,11 @@ app.controller('newPlaceCtrl', function($scope, Map) {
           }
       );
   }
+
+  // display data to use
+    $scope.send = function() {
+        alert($scope.place.name + ' : ' + $scope.place.lat + ', ' + $scope.place.lng);
+    }
+    //init map function
+    Map.init();
+});
