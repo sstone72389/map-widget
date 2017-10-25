@@ -72,6 +72,11 @@ app.controller('newPlaceCtrl', function($scope, Map) {
         alert($scope.place.name + ' : ' + $scope.place.lat + ', ' + $scope.place.lng);
         $("ul").append('<li>'+ $scope.place.name + " : " + $scope.place.lat + ", " + $scope.place.lng + '</li>');
     }
+
+    // delete funtion to be completed shorlty
+    // $scope.deletePlace = function(index) {
+    //     $("ul").append('<li>'+ $scope.place.name + " : " + $scope.place.lat + ", " + $scope.place.lng + '</li>');
+    // }
     //init map function
     Map.init();
 });
