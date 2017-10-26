@@ -15,8 +15,9 @@
 
 <div class="parallax1">
   <h1>MINI-BUS</h1>
-  <h3 id="mainH3">Travel Made Easy</h3>
+  <h3 id="mainH3">We're bringing groovy back!</h3>
   <img id="arrow" class="bounce" src="./img/arrow.png" alt="Scroll Down">
+  <p class="about">I have no idea what this app does yet. So far I only made the scrolling look cool and added the google maps API. I have no fricken clue what to do now, so yeah... This is just a bunch of words to take up some space. Anyway have fun looking at this cool bus. Jeah. That's all i got...</p>
 </div>
 
 <div class="content">
@@ -49,26 +50,26 @@
 
     <form name="resForm" class="form-horizontal" novalidate ng-submit="send()">
       <div class="form-group">
-        <label for="resName" class="col-xs-2 control-label">Name</label>
+        <label for="resName" class="col-xs-2 control-label form-name">Name</label>
         <div class="col-xs-10">
           <input name="resName" type="text" class="form-control" ng-model="place.name" required />
         </div>
       </div>
       <div class="form-group">
-        <label for="resLat" class="col-xs-2 control-label">Latitude</label>
+        <label for="resLat" class="col-xs-2 control-label form-name">Latitude</label>
         <div class="col-xs-10">
           <input name="resLat" type="number" class="form-control" ng-model="place.lat" required />
         </div>
       </div>
       <div class="form-group">
-        <label for="resLng" class="col-xs-2 control-label">Longitude</label>
+        <label for="resLng" class="col-xs-2 control-label form-name">Longitude</label>
         <div class="col-xs-10">
           <input name="resLng" type="number" class="form-control" ng-model="place.lng" required />
         </div>
       </div>
       <div class="form-group">
-        <div class="col-xs-offset-2 col-xs-10">
-          <button class="btn btn-success" ng-disabled="resForm.$invalid">Confirm</button>
+        <div class="col-xs-offset-1 col-xs-10">
+          <button class="btn btn-default" ng-disabled="resForm.$invalid">Confirm</button>
         </div>
       </div>
     </form>
@@ -79,7 +80,7 @@
 </div>
 
 <div class="parallax2">
-  <h1>ABOUT US</h1>
+  <h1>YOUR PLACES</h1>
   <ul></ul>
 </div>
 
