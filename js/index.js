@@ -1,3 +1,10 @@
+$(document).ready(function () {
+
+        $(window).scrollTop(0);
+        return false;
+
+    })
+
 var app = angular.module('myApp', []);
 
 app.service('Map', function($q) {
