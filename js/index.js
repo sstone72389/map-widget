@@ -74,16 +74,19 @@ app.controller('newPlaceCtrl', function($scope, Map) {
             }
         );
     }
-    // display data to use
+    // display data to user
     $scope.send = function() {
-        alert($scope.place.name + ' : ' + $scope.place.lat + ', ' + $scope.place.lng);
+        // alert($scope.place.name + ' : ' + $scope.place.lat + ', ' + $scope.place.lng);
         $("ul").append('<li>'+ $scope.place.name + " : " + $scope.place.lat + ", " + $scope.place.lng + '</li>');
     }
 
-    // delete funtion to be completed shorlty
-    // $scope.deletePlace = function(index) {
-    //     $("ul").append('<li>'+ $scope.place.name + " : " + $scope.place.lat + ", " + $scope.place.lng + '</li>');
-    // }
     //init map function
     Map.init();
+});
+
+// Check off specific li by clicking
+
+
+$("ul").on("click", "li", function() {
+  $(this).toggleClass("completed");
 });
