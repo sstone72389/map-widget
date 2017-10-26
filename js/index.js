@@ -28,7 +28,7 @@ app.service('Map', function($q) {
               // show results if found
                 d.resolve(results[0]);
             }
-            // else reject and show
+            // else reject and show status
             else d.reject(status);
         });
         return d.promise;
