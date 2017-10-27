@@ -77,7 +77,7 @@ app.controller('newPlaceCtrl', function($scope, Map) {
     // display data to user
     $scope.send = function() {
         // alert($scope.place.name + ' : ' + $scope.place.lat + ', ' + $scope.place.lng);
-        $("ul").append("<li><span><i class='fa fa-trash-o' aria-hidden='true'></i></span> "+ $scope.place.name + " : " + $scope.place.lat + ", " + $scope.place.lng + "</li>");
+        $("ul").append("<li><span class='list-span'><i class='fa fa-trash-o' aria-hidden='true'></i></span> "+ $scope.place.name + " : " + $scope.place.lat + ", " + $scope.place.lng + "</li>");
     }
 
     //init map function
