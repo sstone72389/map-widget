@@ -75,22 +75,24 @@ app.controller('newPlaceCtrl', function($scope, Map) {
         );
     }
     // display data to user and push into array for future use
+
+    // array to be used for places selected by user
     $scope.favorites = [];
     $scope.send = function() {
-        // alert($scope.place.name + ' : ' + $scope.place.lat + ', ' + $scope.place.lng);
+        // appends GPS locations to <ul> including coordinates
         $("ul").append("<li><span class='list-span'><i class='fa fa-trash-o' aria-hidden='true'></i></span> "+ $scope.place.name + " : " + $scope.place.lat + ", " + $scope.place.lng + "</li>");
 
+        // pushes into "favorites" array
         $scope.favorites.push($scope.place.name);
 
         console.log($scope.favorites + " is fav places");
 
+        // randomly picks an item in the array
         var placePicked = $scope.favorites[Math.floor(Math.random()*$scope.favorites.length)];
 
         console.log(placePicked + " place picked");
     }
 
-    // var placePicked = $scope.favorites[Math.floor(Math.random()*$scope.favorites.length)];
-    // console.log(placePicked + " place picked");
 
     //init map function
     Map.init();
