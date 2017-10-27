@@ -77,7 +77,7 @@ app.controller('newPlaceCtrl', function($scope, Map) {
     // display data to user
     $scope.send = function() {
         // alert($scope.place.name + ' : ' + $scope.place.lat + ', ' + $scope.place.lng);
-        $("ul").append('<li>'+ $scope.place.name + " : " + $scope.place.lat + ", " + $scope.place.lng + '</li>');
+        $("ul").append("<li><span><i class='fa fa-trash-o' aria-hidden='true'></i></span> "+ $scope.place.name + " : " + $scope.place.lat + ", " + $scope.place.lng + "</li>");
     }
 
     //init map function
@@ -89,4 +89,13 @@ app.controller('newPlaceCtrl', function($scope, Map) {
 
 $("ul").on("click", "li", function() {
   $(this).toggleClass("completed");
+});
+
+// Click on X to delete a todo(li)
+
+$("ul").on("click", "span",function(event) {
+  $(this).parent().fadeOut(500, function() {
+    $(this).remove();
+  });
+  event.stopPropagation();
 });
