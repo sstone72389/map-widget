@@ -74,11 +74,23 @@ app.controller('newPlaceCtrl', function($scope, Map) {
             }
         );
     }
-    // display data to user
+    // display data to user and push into array for future use
+    $scope.favorites = [];
     $scope.send = function() {
         // alert($scope.place.name + ' : ' + $scope.place.lat + ', ' + $scope.place.lng);
         $("ul").append("<li><span class='list-span'><i class='fa fa-trash-o' aria-hidden='true'></i></span> "+ $scope.place.name + " : " + $scope.place.lat + ", " + $scope.place.lng + "</li>");
+
+        $scope.favorites.push($scope.place.name);
+
+        console.log($scope.favorites + " is fav places");
+
+        var placePicked = $scope.favorites[Math.floor(Math.random()*$scope.favorites.length)];
+
+        console.log(placePicked + " place picked");
     }
+
+    // var placePicked = $scope.favorites[Math.floor(Math.random()*$scope.favorites.length)];
+    // console.log(placePicked + " place picked");
 
     //init map function
     Map.init();
