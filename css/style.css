@@ -219,11 +219,18 @@ li:nth-child(2n) {
   text-align: center;
 }
 
-@media screen and (max-device-width: 480px){
+/*@media screen and (max-device-width: 480px){
   .parallax1, .parallax2 {
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: auto;
-    height: auto;
-  }
+    background: lightseagreen;
 }
+
+  body, html {
+    background-color: teal;
+  }
+
+  .picker-div {
+    background-color: teal;
+    border: 5px solid teal;
+
+  }
+}*/
