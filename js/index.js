@@ -11,32 +11,41 @@ app.service('Map', function($q) {
 
   this.init = function() {
     var options = {
+
       // starting point for maps
       center: new google.maps.LatLng(42.3656132, -71.00956020000001),
+
       // zoom control
       zoom: 13,
+
       //disables default UI (i.e. zoom controls, street view, etc.)
       disableDefaultUI: true
     }
+
     // define a JavaScript function that creates a map in the div
     this.map = new google.maps.Map(
       document.getElementById("map"), options
     );
+
     // Create the PlaceService and send the request.
     this.places = new google.maps.places.PlacesService(this.map);
   }
 
   this.search = function(str) {
+
     // use $q.defer() to create a new Promise and assign it to a variable
     var d = $q.defer();
+
     // Google Places API Text Search Service
     this.places.textSearch({
       query: str
     }, function(results, status) {
       if (status == 'OK') {
+
         // show results if found
         d.resolve(results[0]);
       }
+
       // else reject and show status
       else d.reject(status);
     });
@@ -76,39 +85,27 @@ app.controller('newPlaceCtrl', function($scope, Map) {
         }
       );
   }
-  // display data to user and push into array for future use
 
+  // display data to user and push into array for future use
   // array to be used for places selected by user
   $scope.favorites = [];
   $scope.send = function() {
+
     // appends GPS locations to <ul> including coordinates
+    $(".picker-div").show()
     $("ul").append("<li><span class='list-span'><i class='fa fa-trash-o' aria-hidden='true'></i></span>" + $scope.place.name + " : " + $scope.place.lat + ", " + $scope.place.lng + "</li>");
 
     // pushes into "favorites" array
     $scope.favorites.push($scope.place.name + " : " + $scope.place.lat + ", " + $scope.place.lng);
-    // Check off specific li by clicking
 
-    // redundant? Remove and stick with removal only?
-    // $("ul").on("click", "li", function() {
-      // console.log(this.textContent + " on crossout");
-      // $(this).toggleClass("completed");
-      // if completed (crossed out) do not use in array
-      // seems to be emptying entire array
-      // if ($( "li" ).hasClass( "completed" )) {
-      //   console.log("has completed applied");
-      //   $scope.favorites.splice($.inArray(this.textContent, $scope.favorites),1);
-      //   console.log($scope.favorites + " array after crossout");
-
-      // }
-    // });
-
-    // Click on X to delete a todo(li)
+    // Click on trash to delete a todo(li)
     // also remove from places array
-
     $("ul").on("click", "span", function(event) {
       $(this).parent().fadeOut(500, function() {
+
         // asign item to remove to variable
         var itemtoRemove = this.textContent;
+
         // remove from array
         $scope.favorites.splice($.inArray(itemtoRemove, $scope.favorites),1);
         $(this).remove();
@@ -118,21 +115,18 @@ app.controller('newPlaceCtrl', function($scope, Map) {
 
     // randomly picks an item in the array on click
     $(".picker-btn").on("click", function() {
+
       // dsiplays random pick to user
       if ($scope.favorites.length >= 1) {
         var placePicked = $scope.favorites[Math.floor(Math.random() * $scope.favorites.length)];
         $(".place-picked-two").html("Go to " + placePicked);
-        console.log(placePicked + " place picked");
       } else {
-        $scope.favorites.length === 0
-        // logging multiple lines...need to refactor this
-        console.log($scope.favorites + " when empty after click");
       $(".place-picked-two").html("There is nothing in your list :-(");
       }
     });
   }
 
 
-  //init map function
+  // init map function
   Map.init();
 });

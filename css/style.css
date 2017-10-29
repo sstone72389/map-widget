@@ -184,12 +184,8 @@ li:nth-child(2n) {
   opacity: 0;
 }
 
-.completed {
-  text-decoration: line-through;
-  color: gray;
-}
-
 .picker-div {
+  display: none;
   background-color: #1f1a14;
   border: 5px solid #1f1a14;
   border-radius: 5px;
@@ -218,19 +214,3 @@ li:nth-child(2n) {
 .center {
   text-align: center;
 }
-
-/*@media screen and (max-device-width: 480px){
-  .parallax1, .parallax2 {
-    background: lightseagreen;
-}
-
-  body, html {
-    background-color: teal;
-  }
-
-  .picker-div {
-    background-color: teal;
-    border: 5px solid teal;
-
-  }
-}*/
