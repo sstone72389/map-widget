@@ -86,26 +86,31 @@ app.controller('newPlaceCtrl', function($scope, Map) {
 
     // pushes into "favorites" array
     $scope.favorites.push($scope.place.name + " : " + $scope.place.lat + ", " + $scope.place.lng);
-
-    console.log($scope.favorites + " is fav places");
-
     // Check off specific li by clicking
 
-    $("ul").on("click", "li", function() {
-      $(this).toggleClass("completed");
-    });
+    // redundant? Remove and stick with removal only?
+    // $("ul").on("click", "li", function() {
+      // console.log(this.textContent + " on crossout");
+      // $(this).toggleClass("completed");
+      // if completed (crossed out) do not use in array
+      // seems to be emptying entire array
+      // if ($( "li" ).hasClass( "completed" )) {
+      //   console.log("has completed applied");
+      //   $scope.favorites.splice($.inArray(this.textContent, $scope.favorites),1);
+      //   console.log($scope.favorites + " array after crossout");
+
+      // }
+    // });
 
     // Click on X to delete a todo(li)
     // also remove from places array
 
     $("ul").on("click", "span", function(event) {
       $(this).parent().fadeOut(500, function() {
-        console.log(this.textContent);
         // asign item to remove to variable
         var itemtoRemove = this.textContent;
         // remove from array
         $scope.favorites.splice($.inArray(itemtoRemove, $scope.favorites),1);
-        console.log($scope.favorites + "after removing from list");
         $(this).remove();
       });
       event.stopPropagation();
@@ -113,10 +118,16 @@ app.controller('newPlaceCtrl', function($scope, Map) {
 
     // randomly picks an item in the array on click
     $(".picker-btn").on("click", function() {
-      var placePicked = $scope.favorites[Math.floor(Math.random() * $scope.favorites.length)];
       // dsiplays random pick to user
-      $(".place-picked").html(placePicked + " ");
-      console.log(placePicked + " place picked");
+      if ($scope.favorites && $scope.favorites.length > 0) {
+        var placePicked = $scope.favorites[Math.floor(Math.random() * $scope.favorites.length)];
+        $(".place-picked-two").html("Goto " + placePicked);
+        console.log(placePicked + " place picked");
+      } else {
+        // logging multiple lines...need to refactor this
+        console.log($scope.favorites + " when empty after click");
+      $(".place-picked-two").html("There is nothing in your list :-(");
+      }
     });
   }
 
