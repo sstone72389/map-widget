@@ -188,3 +188,15 @@ li:nth-child(2n) {
   text-decoration: line-through;
   color: gray;
 }
+
+.place-picked {
+  font-size: 20px;
+  text-align: center;
+}
+
+.picker-btn {
+  text-align: center;
+}
+.center {
+  text-align: center;
+}

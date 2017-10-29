@@ -82,43 +82,45 @@ app.controller('newPlaceCtrl', function($scope, Map) {
   $scope.favorites = [];
   $scope.send = function() {
     // appends GPS locations to <ul> including coordinates
-    $("ul").append("<li><span class='list-span'><i class='fa fa-trash-o' aria-hidden='true'></i></span> " + $scope.place.name + " : " + $scope.place.lat + ", " + $scope.place.lng + "</li>");
+    $("ul").append("<li><span class='list-span'><i class='fa fa-trash-o' aria-hidden='true'></i></span>" + $scope.place.name + " : " + $scope.place.lat + ", " + $scope.place.lng + "</li>");
 
     // pushes into "favorites" array
-    $scope.favorites.push($scope.place.name);
+    $scope.favorites.push($scope.place.name + " : " + $scope.place.lat + ", " + $scope.place.lng);
 
     console.log($scope.favorites + " is fav places");
+
+    // Check off specific li by clicking
+
+    $("ul").on("click", "li", function() {
+      $(this).toggleClass("completed");
+    });
+
+    // Click on X to delete a todo(li)
+    // also remove from places array
+
+    $("ul").on("click", "span", function(event) {
+      $(this).parent().fadeOut(500, function() {
+        console.log(this.textContent);
+        // asign item to remove to variable
+        var itemtoRemove = this.textContent;
+        // remove from array
+        $scope.favorites.splice($.inArray(itemtoRemove, $scope.favorites),1);
+        console.log($scope.favorites + "after removing from list");
+        $(this).remove();
+      });
+      event.stopPropagation();
+    });
 
     // randomly picks an item in the array on click
     $(".picker-btn").on("click", function() {
       var placePicked = $scope.favorites[Math.floor(Math.random() * $scope.favorites.length)];
       // dsiplays random pick to user
       $(".place-picked").html(placePicked + " ");
+      console.log(placePicked + " place picked");
     });
-
-    console.log(placePicked + " place picked");
   }
 
 
   //init map function
   Map.init();
-});
-
-// Check off specific li by clicking
-
-
-$("ul").on("click", "li", function() {
-  $(this).toggleClass("completed");
-});
-
-// Click on X to delete a todo(li)
-// also remove from places array (to be finsished on refactor)
-
-$("ul").on("click", "span", function(event) {
-  $(this).parent().fadeOut(500, function() {
-    // let itemToRemove = this;
-    // $scope.favorites.splice($.inArray(itemtoRemove, $scope.favorites),1);
-    $(this).remove();
-  });
-  event.stopPropagation();
 });
