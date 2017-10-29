@@ -119,11 +119,12 @@ app.controller('newPlaceCtrl', function($scope, Map) {
     // randomly picks an item in the array on click
     $(".picker-btn").on("click", function() {
       // dsiplays random pick to user
-      if ($scope.favorites && $scope.favorites.length > 0) {
+      if ($scope.favorites.length >= 1) {
         var placePicked = $scope.favorites[Math.floor(Math.random() * $scope.favorites.length)];
-        $(".place-picked-two").html("Goto " + placePicked);
+        $(".place-picked-two").html("Go to " + placePicked);
         console.log(placePicked + " place picked");
       } else {
+        $scope.favorites.length === 0
         // logging multiple lines...need to refactor this
         console.log($scope.favorites + " when empty after click");
       $(".place-picked-two").html("There is nothing in your list :-(");
