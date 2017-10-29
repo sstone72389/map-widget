@@ -7,9 +7,9 @@ Links:
 
 App Screenshots: ![Mini-Bus](http://res.cloudinary.com/dfu4pwocw/image/upload/v1509312190/Screen_Shot_2017-10-29_at_5.20.38_PM_v0ev08.png "Main Page")
 
-![Mini-Bus]http://res.cloudinary.com/dfu4pwocw/image/upload/v1509312195/Screen_Shot_2017-10-29_at_5.20.53_PM_pot77w.png "Logged in")
+![Mini-Bus](http://res.cloudinary.com/dfu4pwocw/image/upload/v1509312195/Screen_Shot_2017-10-29_at_5.20.53_PM_pot77w.png "Map Section")
 
-![Mini-Bus](http://res.cloudinary.com/dfu4pwocw/image/upload/v1509312198/Screen_Shot_2017-10-29_at_5.22.03_PM_vrgf4h.png "Content")
+![Mini-Bus](http://res.cloudinary.com/dfu4pwocw/image/upload/v1509312198/Screen_Shot_2017-10-29_at_5.22.03_PM_vrgf4h.png "List Content")
 
 Purpose of app: Mini-Bus is an interactive travel app that utilizes Google Maps in order to select desired locations and display their applicable cooridantes. Users can add locations to a list and remove items, accordingly. Users can use the picker tool to select a desired location randomly from their list. 
 
