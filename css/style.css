@@ -45,7 +45,7 @@ h3 img {
   background-position: 50% 50%;
   background-size: cover;
   background-attachment: fixed;
-  width: 100%;
+  max-width: 100%;
   min-height: 100%;
   margin-top: -35px;
 }
@@ -56,7 +56,7 @@ h3 img {
   background-position: 50% 50%;
   background-size: cover;
   background-attachment: fixed;
-  width: 100%;
+  max-width: 100%;
   min-height: 100%;
 }
 
