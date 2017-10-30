@@ -214,3 +214,11 @@ li:nth-child(2n) {
 .center {
   text-align: center;
 }
+
+.list-alert {
+    z-index: 1000;
+    position: fixed;
+    top: 5px;
+    left:2%;
+    width: 96%;
+}

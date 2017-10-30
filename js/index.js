@@ -95,6 +95,10 @@ app.controller('newPlaceCtrl', function($scope, Map) {
     $(".picker-div").show()
     $("ul").append("<li><span class='list-span'><i class='fa fa-trash-o' aria-hidden='true'></i></span>" + $scope.place.name + " : " + $scope.place.lat + ", " + $scope.place.lng + "</li>");
 
+    // success message for list additions
+    $(".list-alert").removeClass("in").show();
+    $(".list-alert").delay(2000).addClass("in").fadeOut(2000);
+
     // pushes into "favorites" array
     $scope.favorites.push($scope.place.name + " : " + $scope.place.lat + ", " + $scope.place.lng);
 

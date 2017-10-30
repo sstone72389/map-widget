@@ -14,76 +14,79 @@
 
 <body>
 
-<div class="parallax1">
-  <h1>MINI-BUS</h1>
-  <h3 id="mainH3">An Interactive Travel&nbsp;List</h3>
-  <img id="arrow" class="bounce" src="./img/arrow.png" alt="Scroll Down">
-  <p class="about">Thanks for visiting Mini-Bus. Need to make a "to-do" list for your next trip? With the help of this interactive app, you can find locations you would like to visit and add it to your own personalized list. It's groovy. Get started&nbsp;now! </p>
-</div>
+  <div class="parallax1">
+    <h1>MINI-BUS</h1>
+    <h3 id="mainH3">An Interactive Travel&nbsp;List</h3>
+    <img id="arrow" class="bounce" src="./img/arrow.png" alt="Scroll Down">
+    <p class="about">Thanks for visiting Mini-Bus. Need to make a "to-do" list for your next trip? With the help of this interactive app, you can find locations you would like to visit and add it to your own personalized list. It's groovy. Get started&nbsp;now! </p>
+  </div>
 
-<div class="content">
+  <div class="content">
 
-  <div class="container" ng-app="myApp" ng-controller="newPlaceCtrl">
+    <div class="container" ng-app="myApp" ng-controller="newPlaceCtrl">
 
-    <h3 class="clearfix">
+      <h3 class="clearfix">
           <!-- <img class="pull-right" src="https://vignette.wikia.nocookie.net/logopedia/images/4/4f/Google_Maps_logo-1.png/revision/latest?cb=20131108160714"/> -->
           Search here:
           <!-- <img class="pull-left" src="http://simplyaccessible.com/wordpress/wp-content/uploads/2015/03/spangular.png"/> -->
       </h3>
 
-    <div class="alert alert-danger text-center" role="alert" ng-show="apiError">
-      <b>API Error : </b>
-      <span>{{ apiStatus }}</span>
-    </div>
+      <div class="alert alert-danger text-center" role="alert" ng-show="apiError">
+        <b>API Error : </b>
+        <span>{{ apiStatus }}</span>
+      </div>
 
-    <form name="searchForm" novalidate ng-submit="search()">
-      <div class="input-group">
-        <input name="place" type="text" class="form-control" ng-model="searchPlace" required autofocus />
-        <span class="input-group-btn">
+      <form name="searchForm" novalidate ng-submit="search()">
+        <div class="input-group">
+          <input name="place" type="text" class="form-control" ng-model="searchPlace" required autofocus />
+          <span class="input-group-btn">
                   <button class="btn btn-primary" ng-disabled="searchForm.$invalid">Search</button>
               </span>
-      </div>
-    </form>
+        </div>
+      </form>
 
-    <!-- Create a div element named "map" to hold the map -->
-    <div id="map"></div>
+      <!-- Create a div element named "map" to hold the map -->
+      <div id="map"></div>
 
-    <form name="resForm" class="form-horizontal" novalidate ng-submit="send()">
-      <div class="form-group">
-        <label for="resName" class="col-xs-2 control-label form-name">Name</label>
-        <div class="col-xs-10">
-          <input name="resName" type="text" class="form-control" ng-model="place.name" required />
+      <form name="resForm" class="form-horizontal" novalidate ng-submit="send()">
+        <div class="form-group">
+          <label for="resName" class="col-xs-2 control-label form-name">Name</label>
+          <div class="col-xs-10">
+            <input name="resName" type="text" class="form-control" ng-model="place.name" required />
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="resLat" class="col-xs-2 control-label form-name">Latitude</label>
-        <div class="col-xs-10">
-          <input name="resLat" type="number" class="form-control" ng-model="place.lat" required />
+        <div class="form-group">
+          <label for="resLat" class="col-xs-2 control-label form-name">Latitude</label>
+          <div class="col-xs-10">
+            <input name="resLat" type="number" class="form-control" ng-model="place.lat" required />
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="resLng" class="col-xs-2 control-label form-name">Longitude</label>
-        <div class="col-xs-10">
-          <input name="resLng" type="number" class="form-control" ng-model="place.lng" required />
+        <div class="form-group">
+          <label for="resLng" class="col-xs-2 control-label form-name">Longitude</label>
+          <div class="col-xs-10">
+            <input name="resLng" type="number" class="form-control" ng-model="place.lng" required />
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <div class="col-xs-offset-1 col-xs-10">
-          <button class="btn btn-default" ng-disabled="resForm.$invalid">Add To List</button>
+        <div class="form-group">
+          <div class="col-xs-offset-1 col-xs-10">
+            <button class="list-btn btn btn-default" ng-disabled="resForm.$invalid">Add To List</button>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
+  </div>
 
+  <div class="list-alert alert alert-success fade text-center">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong>Location Added Successfully</strong>
   </div>
 
 
-</div>
+  <div class="parallax2">
+    <h1>YOUR&nbsp;PLACES</h1>
+    <p class="list">You can interact with your added locations below. Simply click the trash can to remove items you no longer wish to&nbsp;visit.</p>
 
-<div class="parallax2">
-  <h1>YOUR&nbsp;PLACES</h1>
-  <p class="list">You can interact with your added locations below. Simply click the trash can to remove items you no longer wish to&nbsp;visit.</p>
-
-  <div id="list-container">
+    <div id="list-container">
       <ul>
       </ul>
     </div>
@@ -95,7 +98,7 @@
       <p class="place-picked-two"></p>
     </div>
 
-</div>
+  </div>
 
 
   <!-- load the Maps JavaScript API using a script tag -->
